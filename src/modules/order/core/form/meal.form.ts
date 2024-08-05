@@ -41,4 +41,40 @@ export class MealForm {
       );
     });
   }
+
+  getSelectableMainCourses(
+    meals: OrderingDomainModel.Meal[],
+    guest: OrderingDomainModel.Guest
+  ): OrderingDomainModel.Meal[] {
+    return meals.filter((meal) => {
+      return !(
+        !this.isMealType(meal, OrderingDomainModel.MealType.MAIN_COURSE) ||
+        !this.hasRequiredAge(meal, guest)
+      );
+    });
+  }
+
+  getSelectableDesserts(
+    meals: OrderingDomainModel.Meal[],
+    guest: OrderingDomainModel.Guest
+  ): OrderingDomainModel.Meal[] {
+    return meals.filter((meal) => {
+      return !(
+        !this.isMealType(meal, OrderingDomainModel.MealType.DESSERT) ||
+        !this.hasRequiredAge(meal, guest)
+      );
+    });
+  }
+
+  getSelectableDrinks(
+    meals: OrderingDomainModel.Meal[],
+    guest: OrderingDomainModel.Guest
+  ): OrderingDomainModel.Meal[] {
+    return meals.filter((meal) => {
+      return !(
+        !this.isMealType(meal, OrderingDomainModel.MealType.DRINK) ||
+        !this.hasRequiredAge(meal, guest)
+      );
+    });
+  }
 }

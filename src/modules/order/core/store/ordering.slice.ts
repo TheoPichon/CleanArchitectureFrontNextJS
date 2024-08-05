@@ -78,6 +78,10 @@ export const orderingSlice = createSlice({
     ) => {
       state.form.tableId = action.payload;
     },
+    chooseMeal: (state, action: PayloadAction<OrderingDomainModel.Form>) => {
+      state.form = action.payload;
+      state.step = OrderingDomainModel.Step.SUMMARY;
+    },
   },
 });
 

@@ -79,6 +79,7 @@ export class MealForm {
     });
   }
 
+  // Il vaut mieux un code ennuyeux et clair (répétition pour les assign)
   assignEntry(
     form: OrderingDomainModel.Form,
     guestId: string,
@@ -90,6 +91,48 @@ export class MealForm {
         return;
       }
       guest.meals.entry = mealId;
+    });
+  }
+
+  assignMainCourse(
+    form: OrderingDomainModel.Form,
+    guestId: string,
+    mealId: OrderingDomainModel.MealId | null
+  ) {
+    return produce(form, (draft) => {
+      const guest = draft.guests.find((g) => g.id === guestId);
+      if (!guest) {
+        return;
+      }
+      guest.meals.mainCourse = mealId;
+    });
+  }
+
+  assignDessert(
+    form: OrderingDomainModel.Form,
+    guestId: string,
+    mealId: OrderingDomainModel.MealId | null
+  ) {
+    return produce(form, (draft) => {
+      const guest = draft.guests.find((g) => g.id === guestId);
+      if (!guest) {
+        return;
+      }
+      guest.meals.dessert = mealId;
+    });
+  }
+
+  assignDrink(
+    form: OrderingDomainModel.Form,
+    guestId: string,
+    mealId: OrderingDomainModel.MealId | null
+  ) {
+    return produce(form, (draft) => {
+      const guest = draft.guests.find((g) => g.id === guestId);
+      if (!guest) {
+        return;
+      }
+      guest.meals.drink = mealId;
     });
   }
 }

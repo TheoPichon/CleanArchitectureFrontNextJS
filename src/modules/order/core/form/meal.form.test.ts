@@ -270,3 +270,49 @@ describe('Assigning meals', () => {
     });
   });
 });
+
+const unSubmittableForm: OrderingDomainModel.Form = {
+  guests: [
+    GuestFactory.create({
+      meals: {
+        entry: null,
+        mainCourse: null,
+        dessert: null,
+        drink: null,
+      },
+    }),
+  ],
+  organizerId: adult.id,
+  tableId: '1',
+};
+
+const submittableForm: OrderingDomainModel.Form = {
+  guests: [
+    GuestFactory.create({
+      meals: {
+        entry: null,
+        mainCourse: regularMainCourse.id,
+        dessert: null,
+        drink: null,
+      },
+    }),
+  ],
+  organizerId: adult.id,
+  tableId: '1',
+};
+
+describe('Is submittable', () => {
+  it.each([
+    {
+      form: unSubmittableForm,
+      expected: false,
+    },
+    {
+      form: submittableForm,
+      expected: true,
+    },
+  ])('should return whether the form is submittable', ({ form, expected }) => {
+    const result = mealForm.isSubmittable(form);
+    expect(result).toEqual(expected);
+  });
+});

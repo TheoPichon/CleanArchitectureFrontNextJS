@@ -23,11 +23,7 @@ export class MealForm {
         return false;
       }
 
-      if (meal.requiredAge && guest.age < meal.requiredAge) {
-        return false;
-      }
-
-      return true;
+      return !(meal.requiredAge && guest.age < meal.requiredAge);
     });
   }
 }

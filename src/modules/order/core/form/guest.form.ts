@@ -14,6 +14,12 @@ export class GuestForm {
         firstName: 'John',
         lastName: 'Doe',
         age: 24,
+        meals: {
+          entry: null,
+          mainCourse: null,
+          dessert: null,
+          drink: null,
+        },
       });
     });
   }

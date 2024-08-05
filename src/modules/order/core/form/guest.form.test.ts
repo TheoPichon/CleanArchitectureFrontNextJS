@@ -14,6 +14,7 @@ const idProvider = new StubIDProvider();
 const emptyInitialState: OrderingDomainModel.Form = {
   guests: [],
   organizerId: null,
+  tableId: null,
 };
 
 const johnDoe = GuestFactory.create({
@@ -21,6 +22,12 @@ const johnDoe = GuestFactory.create({
   firstName: 'John',
   lastName: 'Doe',
   age: 24,
+  meals: {
+    entry: null,
+    mainCourse: null,
+    dessert: null,
+    drink: null,
+  },
 });
 
 const janeDoe = GuestFactory.create({
@@ -28,16 +35,24 @@ const janeDoe = GuestFactory.create({
   firstName: 'Jane',
   lastName: 'Doe',
   age: 24,
+  meals: {
+    entry: null,
+    mainCourse: null,
+    dessert: null,
+    drink: null,
+  },
 });
 
 const stateWithOneUser: OrderingDomainModel.Form = {
   guests: [johnDoe],
   organizerId: null,
+  tableId: null,
 };
 
 const stateWithTwoUsers: OrderingDomainModel.Form = {
   guests: [johnDoe, janeDoe],
   organizerId: null,
+  tableId: null,
 };
 const form = new GuestForm(idProvider);
 

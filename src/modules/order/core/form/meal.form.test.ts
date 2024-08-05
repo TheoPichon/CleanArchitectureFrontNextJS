@@ -94,12 +94,12 @@ describe('Selecting meals', () => {
         expected: [],
       },
       {
-        meals,
+        meals: meals,
         guest: adult,
         expected: [regularEntry, adultEntry],
       },
       {
-        meals,
+        meals: meals,
         guest: children,
         expected: [regularEntry],
       },

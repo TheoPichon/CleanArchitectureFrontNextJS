@@ -1,4 +1,3 @@
-// getSelectableEntries
 // getSelectableMainCourses
 // getSelectableDesserts
 // getSelectableDrinks

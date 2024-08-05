@@ -170,3 +170,21 @@ describe('Selecting meals', () => {
     expect(result).toEqual(expected);
   });
 });
+
+describe('Assigning meals', () => {
+  const form: OrderingDomainModel.Form = {
+    guests: [adult, children],
+    organizerId: adult.id,
+    meals: [],
+    tableId: '1',
+  };
+
+  it('should assign null as an entry of an adult guest', () => {
+    const result = mealForm.assignEntry(form, adult.id, null);
+    expect(result.guests[0].meals.entry).toBeNull();
+  });
+  it('should assign the adult entry as an entry of a non-existent guest', () => {
+    const result = mealForm.assignEntry(form, 'non-existent', adultEntry.id);
+    expect(result).toEqual(form);
+  });
+});

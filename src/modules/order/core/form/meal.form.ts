@@ -11,6 +11,7 @@
 // isSubmittable
 
 import { OrderingDomainModel } from '@ratatouille/modules/order/core/model/ordering.domain-model';
+import { produce } from 'immer';
 
 export class MealForm {
   private isMealType(
@@ -75,6 +76,20 @@ export class MealForm {
         !this.isMealType(meal, OrderingDomainModel.MealType.DRINK) ||
         !this.hasRequiredAge(meal, guest)
       );
+    });
+  }
+
+  assignEntry(
+    form: OrderingDomainModel.Form,
+    guestId: string,
+    mealId: OrderingDomainModel.MealId | null
+  ) {
+    return produce(form, (draft) => {
+      const guest = draft.guests.find((g) => g.id === guestId);
+      if (!guest) {
+        return;
+      }
+      guest.meals.entry = mealId;
     });
   }
 }

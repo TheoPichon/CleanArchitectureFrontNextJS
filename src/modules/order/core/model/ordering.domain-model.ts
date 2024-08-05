@@ -3,6 +3,7 @@ export namespace OrderingDomainModel {
     guests: Guest[];
     organizerId: string | null;
     tableId: string | null;
+    meals: Meal[];
   };
 
   export enum MealType {

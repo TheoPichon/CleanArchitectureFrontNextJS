@@ -31,12 +31,10 @@ export const createTestStore = (config?: {
     ...config?.initialState,
   };
 
-  const store = createStore({
+  return createStore({
     initialState,
     dependencies: createDependencies(config?.dependencies),
   });
-
-  return store;
 };
 
 /**

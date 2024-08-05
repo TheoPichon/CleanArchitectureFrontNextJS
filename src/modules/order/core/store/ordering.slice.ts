@@ -28,7 +28,7 @@ export const orderingSlice = createSlice({
   name: 'ordering',
   initialState,
   reducers: {
-    setStep: (state, action: PayloadAction<OrderingDomainModel.Step>) => {
+    setStep: (state, _: PayloadAction<OrderingDomainModel.Step>) => {
       state.step = OrderingDomainModel.Step.TABLE;
     },
     handleTablesError: (state, action: PayloadAction<string>) => {

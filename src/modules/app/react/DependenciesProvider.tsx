@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
 import { Dependencies } from '@ratatouille/modules/store/dependencies';
-import { app } from '@ratatouille/modules/app/main';
 
 const DependenciesContext = createContext<Dependencies>(null as any);
 

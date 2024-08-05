@@ -8,7 +8,7 @@ describe('Fetch tables', () => {
   it('should handle table fetching failure', async () => {
     const store = createTestStore({
       dependencies: {
-        TableGateway: new FailingTableGateway(),
+        tableGateway: new FailingTableGateway(),
       },
     });
 
@@ -32,7 +32,7 @@ describe('Fetch tables', () => {
     const listOfTables = [table];
     const store = createTestStore({
       dependencies: {
-        TableGateway: new StubTableGateway(listOfTables),
+        tableGateway: new StubTableGateway(listOfTables),
       },
     });
 

@@ -3,5 +3,5 @@ import { ITableGateway } from '@ratatouille/modules/order/core/gateway/table.gat
 
 export type Dependencies = {
   idProvider: IIdProvider;
-  TableGateway: ITableGateway;
+  tableGateway: ITableGateway;
 };

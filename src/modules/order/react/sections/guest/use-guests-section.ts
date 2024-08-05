@@ -2,7 +2,6 @@ import { useRef, useState } from 'react';
 import { OrderingDomainModel } from '@ratatouille/modules/order/core/model/ordering.domain-model';
 import { GuestForm } from '@ratatouille/modules/order/core/form/guest.form';
 import { useDependencies } from '@ratatouille/modules/app/react/DependenciesProvider';
-import { useDispatch } from 'react-redux';
 import { chooseGuests } from '@ratatouille/modules/order/core/usecases/choose-guests.usecase';
 import { useAppDispatch } from '@ratatouille/modules/store/store';
 

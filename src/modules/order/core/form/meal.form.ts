@@ -1,8 +1,3 @@
-// onNext
-// onPrevious
-
-// isSubmittable
-
 import { OrderingDomainModel } from '@ratatouille/modules/order/core/model/ordering.domain-model';
 import { produce } from 'immer';
 

@@ -97,7 +97,6 @@ export const orderingSlice = createSlice({
     },
     handleReservationSuccess: (state) => {
       state.reservation = { status: 'success' };
-      state.step = OrderingDomainModel.Step.RESERVED;
     },
     handleReservationError: (state, action: PayloadAction<string>) => {
       state.reservation = { status: 'error', error: action.payload };

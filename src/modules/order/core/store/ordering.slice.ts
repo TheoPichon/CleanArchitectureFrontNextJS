@@ -14,7 +14,17 @@ export type OrderingState = {
     status: 'idle' | 'loading' | 'success' | 'error';
     error: null | string;
   };
+  reservation: ReservationStatus;
 };
+
+export type ReservationStatus =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'success' }
+  | {
+      status: 'error';
+      error: string;
+    };
 
 export const initialState: OrderingState = {
   step: OrderingDomainModel.Step.GUESTS,
@@ -33,6 +43,7 @@ export const initialState: OrderingState = {
     error: null,
     data: [],
   },
+  reservation: { status: 'idle' },
 };
 
 export const orderingSlice = createSlice({
@@ -80,6 +91,16 @@ export const orderingSlice = createSlice({
     },
     chooseMeal: (state, action: PayloadAction<OrderingDomainModel.Form>) => {
       state.form = action.payload;
+    },
+    handleReservationLoading: (state) => {
+      state.reservation = { status: 'loading' };
+    },
+    handleReservationSuccess: (state) => {
+      state.reservation = { status: 'success' };
+      state.step = OrderingDomainModel.Step.RESERVED;
+    },
+    handleReservationError: (state, action: PayloadAction<string>) => {
+      state.reservation = { status: 'error', error: action.payload };
     },
   },
 });

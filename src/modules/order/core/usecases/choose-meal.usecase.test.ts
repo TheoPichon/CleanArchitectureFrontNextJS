@@ -1,7 +1,7 @@
 import { OrderingDomainModel } from '@ratatouille/modules/order/core/model/ordering.domain-model';
 import { GuestFactory } from '@ratatouille/modules/order/core/model/guest.factory';
 import { createTestStore } from '@ratatouille/modules/testing/tests-environment';
-import { ChooseMeal } from '@ratatouille/modules/order/core/usecases/choose-meal.usecase';
+import { chooseMeal } from '@ratatouille/modules/order/core/usecases/choose-meal.usecase';
 
 const guestForm: OrderingDomainModel.Form = {
   guests: [
@@ -25,7 +25,7 @@ const guestForm: OrderingDomainModel.Form = {
 describe('Feature: choosing a meal', () => {
   it('should choose a meal', () => {
     const store = createTestStore();
-    store.dispatch(ChooseMeal(guestForm));
+    store.dispatch(chooseMeal(guestForm));
     expect(store.getState().ordering.form.guests).toEqual(guestForm.guests);
     expect(store.getState().ordering.step).toEqual(
       OrderingDomainModel.Step.SUMMARY

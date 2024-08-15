@@ -19,10 +19,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Run lint and format
+        run: |
+          pnpm lint
+          pnpm prettier --check .
 
       - name: Run tests
         run: pnpm test

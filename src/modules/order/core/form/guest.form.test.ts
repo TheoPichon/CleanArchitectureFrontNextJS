@@ -78,7 +78,7 @@ describe('Remove a guest', () => {
     expect(state.guests).toEqual([]);
   });
 
-  it('when there is two user, on`y the user with ID 1 should be removed', () => {
+  it('when there is two user, only the user with ID 1 should be removed', () => {
     const state = form.removeGuest(stateWithTwoUsers, '1');
     expect(state.guests).toEqual([janeDoe]);
   });

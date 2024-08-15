@@ -7,6 +7,7 @@ describe('Choose guests', () => {
   it('should choose the guests', async () => {
     const store = createTestStore();
     const form: OrderingDomainModel.Form = {
+      tableId: '1',
       guests: [
         GuestFactory.create({
           id: '1',

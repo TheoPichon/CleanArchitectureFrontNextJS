@@ -3,6 +3,9 @@ import { ITableGateway } from '@ratatouille/modules/order/core/gateway/table.gat
 import { IMealGateway } from '@ratatouille/modules/order/core/gateway/meal.gateway';
 import { IReservationGateway } from '@ratatouille/modules/order/core/gateway/reservation.gateway';
 
+/**
+ * Contrat définissant les dépendances requises pour l'application
+ */
 export type Dependencies = {
   idProvider: IIdProvider;
   tableGateway: ITableGateway;

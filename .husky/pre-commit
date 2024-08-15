@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Lancer les tests
+pnpm test
+
+# Vérifier si les tests ont réussi
+if [ $? -ne 0 ]; then
+  echo "Les tests ont échoué. Veuillez résoudre les erreurs avant de commit."
+  exit 1
+fi
+
+# Exécuter lint-staged pour formater le code et corriger les erreurs
+pnpm lint-staged
+

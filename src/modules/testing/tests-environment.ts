@@ -1,3 +1,11 @@
+/**
+ * Ce fichier fournit une configuration pour tester l'application
+ * de manière isolée et controlée en utilisant des dépendances simulées et
+ * des états de store spécifiques.
+ * @param dependencies
+ * @returns
+ */
+
 import { AppState, createStore } from '@ratatouille/modules/store/store';
 import { Dependencies } from '@ratatouille/modules/store/dependencies';
 import { StubMealGateway } from '@ratatouille/modules/order/core/testing/stub.meal-gateway';

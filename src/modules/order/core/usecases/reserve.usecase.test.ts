@@ -4,7 +4,6 @@ import { reserve } from '@ratatouille/modules/order/core/usecases/reserve.usecas
 import { OrderingDomainModel } from '@ratatouille/modules/order/core/model/ordering.domain-model';
 import { GuestFactory } from '@ratatouille/modules/order/core/model/guest.factory';
 import { OrderingState } from '@ratatouille/modules/order/core/store/ordering.slice';
-import exp from 'node:constants';
 import { FailingReservationGateway } from '@ratatouille/modules/order/core/testing/failing.reservation-gateway';
 
 const orderForm: OrderingDomainModel.Form = {
@@ -26,6 +25,7 @@ const orderForm: OrderingDomainModel.Form = {
   ],
 };
 
+// État initial du module ordering
 const orderingState: OrderingState = {
   step: OrderingDomainModel.Step.SUMMARY,
   form: orderForm,

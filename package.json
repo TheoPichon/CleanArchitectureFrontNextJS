@@ -8,6 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
+    "lint-all": "eslint . --fix",
+    "lint-and-format": "npm run lint-all && npm run format",
     "husky": "husky install"
   },
   "dependencies": {

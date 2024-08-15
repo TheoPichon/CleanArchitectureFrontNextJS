@@ -20,7 +20,7 @@ export const SummarySection: React.FC<{}> = () => {
               </Typography>
               {guest.meals.entry && (
                 <Typography variant="body2">
-                  Entrée : {guest.meals.entry.title}
+                  Entrées : {guest.meals.entry.title}
                 </Typography>
               )}
               {guest.meals.mainCourse && (

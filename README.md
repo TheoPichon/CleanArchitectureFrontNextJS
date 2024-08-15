@@ -1,8 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped
+with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Demmarage du projet
 
-First, run the development server:
+Avant de lancer le projet pour la première fois, assurez-vous d'installer toutes les dépendances :
+
+```bash
+pnpm install
+```
+
+Note : Si vous n'avez pas pnpm d'installé, vous pouvez l'installer avec npm :
+
+```bash
+npm install -g pnpm
+```
+
+## Lancement du serveur de développement
 
 ```bash
 npm run dev
@@ -12,23 +25,30 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez http://localhost:3000 dans votre navigateur pour voir le résultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commandes disponibles
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `dev` : lance le serveur de développement sur http://localhost:3000
+- `build` : crée une version de production de l'application
+- `start` : démarre un serveur de production
+- `test` : lance les tests unitaires avec Jest
+- `lint-and-format` : lance le linter ESLint et le formateur Prettier
 
-## Learn More
+## Configuration CI/CD
 
-To learn more about Next.js, take a look at the following resources:
+Ce projet est configuré pour utiliser une pipeline CI/CD avec GitHub Actions et Vercel :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### GitHub Actions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Chaque fois que vous poussez du code sur la branche main ou que vous créez une pull request, les
+actions suivantes sont exécutées :
 
-## Deploy on Vercel
+    Tests unitaires : Les tests sont exécutés avec pnpm test pour s'assurer que le code fonctionne correctement.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Lint et formatage : Le code est vérifié avec pnpm lint et formaté avec pnpm prettier --check ..
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    Vercel : Après chaque merge sur le main, l'application est automatiquement déployée sur Vercel.
+
+Le déploiement est effectué une fois que tous les tests et vérifications sont passés avec succès.
+
